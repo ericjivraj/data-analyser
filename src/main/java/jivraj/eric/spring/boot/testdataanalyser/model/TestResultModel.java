@@ -2,25 +2,18 @@ package jivraj.eric.spring.boot.testdataanalyser.model;
 
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+//ToDo!! make this either match mongo names, or change mongo names to match this..
 
-@Entity
 public class TestResultModel
 {
-  @Column(nullable = false)
   private List<String> testResults;
 
-  @Column(nullable = false)
   private String testClassName;
 
-  @Column(nullable = false)
   private String testName;
 
-  @Column(nullable = false)
   private String testStatus;
 
-  @Column(nullable = false)
   private String stackTrace;
 
   public List<String> getTestResults()
