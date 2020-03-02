@@ -98,6 +98,11 @@ public class Results
     return testResults;
   }
 
+  public void setTestResults(ArrayList<String> testResults)
+  {
+    this.testResults = testResults;
+  }
+
   public String getClassName()
   {
     return className;

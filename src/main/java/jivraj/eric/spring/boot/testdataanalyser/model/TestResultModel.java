@@ -2,8 +2,6 @@ package jivraj.eric.spring.boot.testdataanalyser.model;
 
 import java.util.List;
 
-//ToDo!! make this either match mongo names, or change mongo names to match this..
-
 public class TestResultModel
 {
   private List<String> testResults;
