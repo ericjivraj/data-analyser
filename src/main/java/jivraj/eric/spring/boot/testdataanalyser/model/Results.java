@@ -1,5 +1,6 @@
 package jivraj.eric.spring.boot.testdataanalyser.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -19,7 +20,7 @@ public class Results
 
   private String branch;
 
-  private List<String> testResults;
+  private ArrayList<String> testResults;
 
   private String className;
 
@@ -29,7 +30,7 @@ public class Results
 
   private String stackTrace;
 
-  public Results(String testJob, String buildNo, String buildRevision, String branch, List<String> testResults, String className, String testName, String testStatus, String stackTrace)
+  public Results(String testJob, String buildNo, String buildRevision, String branch, ArrayList<String> testResults, String className, String testName, String testStatus, String stackTrace)
   {
     this.testJob = testJob;
     this.buildNo = buildNo;
@@ -92,7 +93,7 @@ public class Results
     this.branch = branch;
   }
 
-  public List<String> getTestResults()
+  public ArrayList<String> getTestResults()
   {
     return testResults;
   }

@@ -1,18 +1,11 @@
 package jivraj.eric.spring.boot.testdataanalyser.controller;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
 
 import jivraj.eric.spring.boot.testdataanalyser.model.Results;
 import jivraj.eric.spring.boot.testdataanalyser.repository.IJobResultRepository;
@@ -22,12 +15,6 @@ public class DataAnalyserController
 {
   @Autowired
   private IJobResultRepository repository;
-
-  private MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost:27017"));
-
-  private String databaseName = "test";
-
-  private MongoTemplate mongoTemplate = new MongoTemplate(mongoClient, databaseName);
 
   @RequestMapping("/")
   public String branchSelectionView(Model model)
@@ -43,14 +30,14 @@ public class DataAnalyserController
 
     String eric = "Eric";
     String testJob = results.getTestJob();
-    String buildNo = results.getBuildNo(); // Build coming back as random ID???
+    String buildNo = results.getBuildNo();
     String buildStatus = results.getBuildStatus();
     String buildRevision = results.getBuildRevision();
     String branch = results.getBranch();
-    ArrayList<String> testResults = (ArrayList<String>) results.getTestResults();
+    ArrayList<String> testResults = results.getTestResults();
     for(int i=0;i<testResults.size();i++)
     {
-      testResults.get(i);
+      testResults.get(i).split(",");
     }
 
     model.addAttribute("name", eric);
