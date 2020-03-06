@@ -39,16 +39,22 @@
     <th>Build Status</th>
     <th>Build Revision</th>
     <th>Branch Name</th>
-    <th>Test Results</th>
+    <th>Class Name</th>
+    <th>Test Name</th>
+    <th>Test Status</th>
   </tr>
+<c:forEach var="entry" items="${testResults}">
   <tr>
     <td>${testJob}</td>
     <td>${buildNo}</td>
     <td>${buildStatus}</td>
     <td>${buildRevision}</td>
     <td>${branch}</td>
-    <td>${testResults}</td>
+    <td><c:out value="${entry.className}"/></td>
+    <td><c:out value="${entry.testName}"/></td>
+    <td><c:out value="${entry.testStatus}"/></td>
   </tr>
+</c:forEach>
 </table>
 
 <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"/>
