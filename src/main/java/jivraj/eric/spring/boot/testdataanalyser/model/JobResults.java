@@ -1,12 +1,12 @@
 package jivraj.eric.spring.boot.testdataanalyser.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "Results")
-public class Results
+@Document(collection = "JobResults")
+public class JobResults
 {
   private String testJob;
 
@@ -19,27 +19,15 @@ public class Results
 
   private String branch;
 
-  private ArrayList<String> testResults;
+  private List<TestResults> testResults;
 
-  private String className;
-
-  private String testName;
-
-  private String testStatus;
-
-  private String stackTrace;
-
-  public Results(String testJob, String buildNo, String buildRevision, String branch, ArrayList<String> testResults, String className, String testName, String testStatus, String stackTrace)
+  public JobResults(String testJob, String buildNo, String buildRevision, String branch, List<TestResults> testResults)
   {
     this.testJob = testJob;
     this.buildNo = buildNo;
     this.buildRevision = buildRevision;
     this.branch = branch;
     this.testResults = testResults;
-    this.className = className;
-    this.testName = testName;
-    this.testStatus = testStatus;
-    this.stackTrace = stackTrace;
   }
 
   public String getTestJob()
@@ -92,53 +80,13 @@ public class Results
     this.branch = branch;
   }
 
-  public ArrayList<String> getTestResults()
+  public List<TestResults> getTestResults()
   {
     return testResults;
   }
 
-  public void setTestResults(ArrayList<String> testResults)
+  public void setTestResults(List<TestResults> testResults)
   {
     this.testResults = testResults;
-  }
-
-  public String getClassName()
-  {
-    return className;
-  }
-
-  public void setClassName(String className)
-  {
-    this.className = className;
-  }
-
-  public String getTestName()
-  {
-    return testName;
-  }
-
-  public void setTestName(String testName)
-  {
-    this.testName = testName;
-  }
-
-  public String getTestStatus()
-  {
-    return testStatus;
-  }
-
-  public void setTestStatus(String testStatus)
-  {
-    this.testStatus = testStatus;
-  }
-
-  public String getStackTrace()
-  {
-    return stackTrace;
-  }
-
-  public void setStackTrace(String stackTrace)
-  {
-    this.stackTrace = stackTrace;
   }
 }

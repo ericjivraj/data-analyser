@@ -2,13 +2,13 @@ package jivraj.eric.spring.boot.testdataanalyser.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import jivraj.eric.spring.boot.testdataanalyser.model.Results;
+import jivraj.eric.spring.boot.testdataanalyser.model.JobResults;
 
-public interface IJobResultRepository extends MongoRepository<Results, String>
+public interface IJobResultRepository extends MongoRepository<JobResults, String>
 {
-  Results findAllByBuildNoIs(String buildNo);
+  JobResults findAllByBuildNoIs(String buildNo);
 
-  Results findByBuildNoIs(String buildNo);
+  JobResults findByBuildNoIs(String buildNo);
 
-  Results findAllByBuildNo(String buildNo);
+  JobResults findAllByBuildNo(String buildNo);
 }
