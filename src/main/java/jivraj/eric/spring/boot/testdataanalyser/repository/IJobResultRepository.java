@@ -6,9 +6,5 @@ import jivraj.eric.spring.boot.testdataanalyser.model.JobResults;
 
 public interface IJobResultRepository extends MongoRepository<JobResults, String>
 {
-  JobResults findAllByBuildNoIs(String buildNo);
-
-  JobResults findByBuildNoIs(String buildNo);
-
-  JobResults findAllByBuildNo(String buildNo);
+  JobResults findAllByBranch(String branch);
 }

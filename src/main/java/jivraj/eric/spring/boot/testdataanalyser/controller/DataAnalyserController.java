@@ -20,14 +20,7 @@ public class DataAnalyserController
   @RequestMapping("/")
   public String branchSelectionView(Model model)
   {
-    //Get stuff from Mongo (dao), maybe map to a display model
-    //Pass the 'stuff' into the model.
-    //Use the model.stuff in the model.
-
-    final JobResults results = repository.findAll().get(0);
-    //final Results allBy1 = repository.findByBuildNoIs("110");
-    //final Results allBy2 = repository.findAllByBuildNo("110");
-    //final Results allBy3 = repository.findAllByBuildNoIs("110");
+    final JobResults results = repository.findAllByBranch("origin/master");
 
     String testJob = results.getTestJob();
     String buildNo = results.getBuildNo();
