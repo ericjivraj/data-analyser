@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import jivraj.eric.spring.boot.testdataanalyser.model.JobResults;
 import jivraj.eric.spring.boot.testdataanalyser.model.TestResults;
@@ -18,9 +20,15 @@ public class DataAnalyserController
   private IJobResultRepository repository;
 
   @RequestMapping("/")
-  public String branchSelectionView(Model model)
+  public String branchSelectionView()
   {
-    final JobResults results = repository.findAllByBranch("origin/master");
+    return "BranchSelectionView";
+  }
+
+  @RequestMapping(value = "/process", method = RequestMethod.GET)
+  public String branchResultView(Model model, @RequestParam(name = "firstBranch") String firstBranch)
+  {
+    final JobResults results = repository.findAllByBranch(firstBranch);
 
     String testJob = results.getTestJob();
     String buildNo = results.getBuildNo();
@@ -36,6 +44,7 @@ public class DataAnalyserController
     model.addAttribute("branch", branch);
     model.addAttribute("testResults", testResults);
 
-    return "BranchSelectionView";
+    return "BranchResultView";
   }
+
 }
