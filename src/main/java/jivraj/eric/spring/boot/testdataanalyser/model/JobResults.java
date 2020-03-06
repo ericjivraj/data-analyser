@@ -9,8 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class JobResults
 {
   private String testJob;
-
-  @Id
+  
   private String buildNo;
 
   private String buildStatus;
