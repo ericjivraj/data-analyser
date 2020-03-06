@@ -1,12 +1,11 @@
 package jivraj.eric.spring.boot.testdataanalyser.model;
 
-import java.util.List;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-public class TestResultModel
+@Document(collection = "testResults")
+public class TestResults
 {
-  private List<String> testResults;
-
-  private String testClassName;
+  private String className;
 
   private String testName;
 
@@ -14,24 +13,22 @@ public class TestResultModel
 
   private String stackTrace;
 
-  public List<String> getTestResults()
+  public TestResults(String className, String testName, String testStatus, String stackTrace)
   {
-    return testResults;
+    this.className = className;
+    this.testName = testName;
+    this.testStatus = testStatus;
+    this.stackTrace = stackTrace;
   }
 
-  public void setTestResults(List<String> testResults)
+  public String getClassName()
   {
-    this.testResults = testResults;
+    return className;
   }
 
-  public String getTestClassName()
+  public void setClassName(String className)
   {
-    return testClassName;
-  }
-
-  public void setTestClassName(String testClassName)
-  {
-    this.testClassName = testClassName;
+    this.className = className;
   }
 
   public String getTestName()
