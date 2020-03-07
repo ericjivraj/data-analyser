@@ -28,21 +28,9 @@ public class DataAnalyserController
   @RequestMapping(value = "/process", method = RequestMethod.GET)
   public String branchResultView(Model model, @RequestParam(name = "firstBranch") String firstBranch)
   {
-    final JobResults results = repository.findAllByBranch(firstBranch);
+    final List<JobResults> jobResults = repository.findAllByBranch(firstBranch);
 
-    String testJob = results.getTestJob();
-    String buildNo = results.getBuildNo();
-    String buildStatus = results.getBuildStatus();
-    String buildRevision = results.getBuildRevision();
-    String branch = results.getBranch();
-    List<TestResults> testResults = results.getTestResults();
-
-    model.addAttribute("testJob", testJob);
-    model.addAttribute("buildNo", buildNo);
-    model.addAttribute("buildStatus", buildStatus);
-    model.addAttribute("buildRevision", buildRevision);
-    model.addAttribute("branch", branch);
-    model.addAttribute("testResults", testResults);
+    model.addAttribute("jobResults", jobResults);
 
     return "BranchResultView";
   }

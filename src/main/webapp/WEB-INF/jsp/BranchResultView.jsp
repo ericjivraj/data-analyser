@@ -30,19 +30,22 @@
     <th>Test Name</th>
     <th>Test Status</th>
   </tr>
-<c:forEach var="entry" items="${testResults}">
+<c:forEach var="jobResult" items="${jobResults}">
+<c:forEach var="testResult" items="${jobResult.testResults}">
   <tr>
-    <td>${testJob}</td>
-    <td>${buildNo}</td>
-    <td>${buildStatus}</td>
-    <td>${buildRevision}</td>
-    <td>${branch}</td>
-    <td><c:out value="${entry.className}"/></td>
-    <td><c:out value="${entry.testName}"/></td>
-    <td><c:out value="${entry.testStatus}"/></td>
+    <td>${jobResult.testJob}</td>
+    <td>${jobResult.buildNo}</td>
+    <td>${jobResult.buildStatus}</td>
+    <td>${jobResult.buildRevision}</td>
+    <td>${jobResult.branch}</td>
+    <td>${testResult.className}</td>
+    <td>${testResult.testName}</td>
+    <td>${testResult.testStatus}</td>
   </tr>
 </c:forEach>
+</c:forEach>
 </table>
+<th><a href="http://localhost:8080/">Go Back to Main Menu</a></th>
 
 <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"/>
 
