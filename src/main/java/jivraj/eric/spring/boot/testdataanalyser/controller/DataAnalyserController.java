@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import jivraj.eric.spring.boot.testdataanalyser.model.JobResults;
-import jivraj.eric.spring.boot.testdataanalyser.model.TestResults;
 import jivraj.eric.spring.boot.testdataanalyser.repository.IJobResultRepository;
 
 @Controller
