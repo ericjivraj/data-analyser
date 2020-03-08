@@ -28,9 +28,7 @@ public class DataAnalyserController
   public String branchResultView(Model model, @RequestParam(name = "firstBranch") String firstBranch)
   {
     final List<JobResults> jobResults = repository.findAllByBranch(firstBranch);
-
     model.addAttribute("jobResults", jobResults);
-
     return "BranchResultView";
   }
 
