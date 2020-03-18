@@ -31,7 +31,8 @@
     <th>Test Status</th>
   </tr>
 <c:forEach var="jobResult" items="${jobResults}">
-<c:forEach var="testResult" items="${jobResult.testResults}">
+<c:forEach var="testClass" items="${jobResult.testResults}">
+<c:forEach var="testResult" items="${testClass.value}">
   <tr>
     <td>${jobResult.testJob}</td>
     <td>${jobResult.buildNo}</td>
@@ -42,6 +43,7 @@
     <td>${testResult.testName}</td>
     <td>${testResult.testStatus}</td>
   </tr>
+</c:forEach>
 </c:forEach>
 </c:forEach>
 </table>

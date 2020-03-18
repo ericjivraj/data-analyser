@@ -1,6 +1,8 @@
 package jivraj.eric.spring.boot.testdataanalyser.model;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -17,9 +19,9 @@ public class JobResults
 
   private String branch;
 
-  private List<TestResults> testResults;
+  private Map<String, List<TestResults>> testResults;
 
-  public JobResults(String testJob, String buildNo, String buildRevision, String branch, List<TestResults> testResults)
+  public JobResults(String testJob, String buildNo, String buildRevision, String branch, Map<String, List<TestResults>> testResults)
   {
     this.testJob = testJob;
     this.buildNo = buildNo;
@@ -78,12 +80,12 @@ public class JobResults
     this.branch = branch;
   }
 
-  public List<TestResults> getTestResults()
+  public Map<String, List<TestResults>> getTestResults()
   {
     return testResults;
   }
 
-  public void setTestResults(List<TestResults> testResults)
+  public void setTestResults(Map<String, List<TestResults>> testResults)
   {
     this.testResults = testResults;
   }
