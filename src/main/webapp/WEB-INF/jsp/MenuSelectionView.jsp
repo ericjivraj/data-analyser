@@ -18,13 +18,15 @@
 </head>
 
 <body>
-<h1>View All Builds in a Branch:</h1>
-<form action="/viewAllBuilds" method="GET">
-<b>First Branch</b>
-<input type="text" name="firstBranch" id="firstBranch"/>
-<input type="submit" name="compareBranch" id="compareBranch"/>
-</form>
+<h1>Test Data Analyser Tool:</h1>
+<table cellborder="3">
+  <tr>
+    <th>| <a href="http://localhost:8080/selectBranchLastBuild">View Last Build in a Branch</a></th>
+    <th>[ <a href="http://localhost:8080/selectBranch">View All Builds in a Branch</a> |</th>
+    <th>| <a href="http://localhost:8080/selectBranches">Compare Results between Branches</a> ]</th>
+  </tr>
 
+</table>
 <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"/>
 
 </body>

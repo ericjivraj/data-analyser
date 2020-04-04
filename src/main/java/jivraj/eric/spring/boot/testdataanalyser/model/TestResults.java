@@ -6,12 +6,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class TestResults
 {
   private String className;
-
   private String testName;
-
   private String testStatus;
-
   private String stackTrace;
+  private static final String PASSED = "PASSED";
+  private static final String FIXED = "FIXED";
 
   public TestResults(String className, String testName, String testStatus, String stackTrace)
   {
@@ -59,5 +58,10 @@ public class TestResults
   public void setStackTrace(String stackTrace)
   {
     this.stackTrace = stackTrace;
+  }
+
+  public boolean isPassed()
+  {
+    return PASSED.equals(testStatus) || FIXED.equals(testStatus);
   }
 }

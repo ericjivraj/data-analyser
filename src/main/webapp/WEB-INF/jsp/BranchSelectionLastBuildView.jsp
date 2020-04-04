@@ -18,8 +18,8 @@
 </head>
 
 <body>
-<h1>View All Builds in a Branch:</h1>
-<form action="/viewAllBuilds" method="GET">
+<h1>View Last Build in a Branch:</h1>
+<form action="/viewLastBuildInBranch" method="GET">
 <b>First Branch</b>
 <input type="text" name="firstBranch" id="firstBranch"/>
 <input type="submit" name="compareBranch" id="compareBranch"/>

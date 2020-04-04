@@ -19,9 +19,11 @@
 
 <body>
 <h1>View All Builds in a Branch:</h1>
-<form action="/viewAllBuilds" method="GET">
+<form action="/compareBranches" method="GET">
 <b>First Branch</b>
-<input type="text" name="firstBranch" id="firstBranch"/>
+<input type="text" name="leftBranch" id="leftBranch"/>
+<b>Second Branch</b>
+<input type="text" name="rightBranch" id="rightBranch"/>
 <input type="submit" name="compareBranch" id="compareBranch"/>
 </form>
 

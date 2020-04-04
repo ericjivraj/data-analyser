@@ -18,12 +18,30 @@
 </head>
 
 <body>
-<h1>View All Builds in a Branch:</h1>
-<form action="/viewAllBuilds" method="GET">
-<b>First Branch</b>
-<input type="text" name="firstBranch" id="firstBranch"/>
-<input type="submit" name="compareBranch" id="compareBranch"/>
-</form>
+<h1>Branch Result - Last Build:</h1>
+<table>
+  <tr>
+    <th>Test Job</th>
+    <th>Build Number</th>
+    <th>Branch Name</th>
+    <th>Class Name</th>
+    <th>Test Name</th>
+    <th>Test Status</th>
+  </tr>
+<c:forEach var="testClass" items="${jobResults.testResults}">
+<c:forEach var="testResult" items="${testClass.value}">
+  <tr>
+    <td>${jobResults.testJob}</td>
+    <td>${jobResults.buildNo}</td>
+    <td>${jobResults.branch}</td>
+    <td>${testResult.className}</td>
+    <td>${testResult.testName}</td>
+    <td>${testResult.testStatus}</td>
+  </tr>
+</c:forEach>
+</c:forEach>
+</table>
+<th><a href="http://localhost:8080/">Go Back to Main Menu</a></th>
 
 <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"/>
 

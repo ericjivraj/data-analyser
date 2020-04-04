@@ -9,15 +9,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class JobResults
 {
   private String testJob;
-
   private String buildNo;
-
   private String buildStatus;
-
   private String buildRevision;
-
   private String branch;
-
   private Map<String, List<TestResults>> testResults;
 
   public JobResults(String testJob, String buildNo, String buildRevision, String branch, Map<String, List<TestResults>> testResults)

@@ -18,13 +18,11 @@
 </head>
 
 <body>
-<h1>Branch Comparison Result:</h1>
+<h1>Branch Result - All Builds:</h1>
 <table>
   <tr>
     <th>Test Job</th>
     <th>Build Number</th>
-    <th>Build Status</th>
-    <th>Build Revision</th>
     <th>Branch Name</th>
     <th>Class Name</th>
     <th>Test Name</th>
@@ -36,8 +34,6 @@
   <tr>
     <td>${jobResult.testJob}</td>
     <td>${jobResult.buildNo}</td>
-    <td>${jobResult.buildStatus}</td>
-    <td>${jobResult.buildRevision}</td>
     <td>${jobResult.branch}</td>
     <td>${testResult.className}</td>
     <td>${testResult.testName}</td>
