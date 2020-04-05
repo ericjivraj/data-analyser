@@ -10,6 +10,10 @@ import jivraj.eric.spring.boot.testdataanalyser.model.Match;
 import jivraj.eric.spring.boot.testdataanalyser.model.MatchResults;
 import jivraj.eric.spring.boot.testdataanalyser.model.TestResults;
 
+/** This class forms part of the service layer
+ * This is the Result Comparison class, and this object is responsible for comparing the test results
+ * It runs the comparison algorithm in two stages, firstly it matches test results, then it extracts the differences
+ */
 public class ResultComparison
 {
 
@@ -18,6 +22,14 @@ public class ResultComparison
 
   }
 
+  /** This method is used to match the results from both branches
+   * It looks at both branches and extracts the test classes that both branches have in common into a matches list
+   * It also extracts any test classes that are found on the left branch that do not exist on the right branch into a no matches left list
+   * It also extracts any test classes that are found on the right branch that do not exist on the left branch into a no matches right list
+   * @param leftBranchJobResultsList List of job results containing test results for the left branch
+   * @param rightBranchJobResultsList List of job results containing test results for the right branch
+   * @return MatchResults object which contains the 3 match lists: matches on both branches, only on the left branch, and only on the right branch
+   */
   public MatchResults matchResults(List<JobResults> leftBranchJobResultsList, List<JobResults> rightBranchJobResultsList)
   {
     Map<String, List<TestResults>> leftBranchTestResultsMap = fetchLastTestResultsBuild(leftBranchJobResultsList);
@@ -84,6 +96,10 @@ public class ResultComparison
     return new MatchResults(noMatchesLeft, noMatchesRight, matchesList);
   }
 
+  /** This method is used to extract the differences from the matches list inside the MatchResults object
+   * @param matchResults object containing 3 matches lists: matches on both branches, only on the left branch, and only on the right branch
+   * @return List<Match<TestResults>> which contains the extracted differences
+   */
   public List<Match<TestResults>> extractDifferences(MatchResults matchResults)
   {
     List<Match<TestResults>> matchList = matchResults.getMatchList();
@@ -106,6 +122,10 @@ public class ResultComparison
     return differencesList;
   }
 
+  /** This method is used to fetch the last build of test results within a branch
+   * @param branchResultsList List of job results from a given branch
+   * @return Map<String, List<TestResults>> object which represents the last build of tests results in a branch
+   */
   private Map<String, List<TestResults>> fetchLastTestResultsBuild(List<JobResults> branchResultsList)
   {
     int lastIndex = branchResultsList.size()-1;
