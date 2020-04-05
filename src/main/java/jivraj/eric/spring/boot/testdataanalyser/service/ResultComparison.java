@@ -17,6 +17,9 @@ import jivraj.eric.spring.boot.testdataanalyser.model.TestResults;
 public class ResultComparison
 {
 
+  /**
+   * Default constructor for this object
+   */
   public ResultComparison()
   {
 

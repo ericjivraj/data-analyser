@@ -14,6 +14,9 @@ import jivraj.eric.spring.boot.testdataanalyser.model.TestResults;
 public class ResultFiltering
 {
 
+  /**
+   * Default constructor for this object
+   */
   public ResultFiltering()
   {
 
