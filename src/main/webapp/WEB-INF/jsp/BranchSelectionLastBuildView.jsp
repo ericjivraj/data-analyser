@@ -21,7 +21,7 @@
 <h1>View Last Build in a Branch:</h1>
 <form action="/viewLastBuildInBranch" method="GET">
 <b>First Branch</b>
-<input type="text" name="firstBranch" id="firstBranch"/>
+<input type="text" name="leftBranch" id="leftBranch"/>
 <input type="submit" name="compareBranch" id="compareBranch"/>
 </form>
 
