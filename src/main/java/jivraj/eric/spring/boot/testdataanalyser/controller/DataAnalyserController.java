@@ -77,7 +77,15 @@ public class DataAnalyserController
   {
     final List<JobResults> jobResults = repository.findAllByBranch(leftBranch);
     int lastIndex = jobResults.size()-1;
-    JobResults lastBuildResults = jobResults.get(lastIndex);
+    JobResults lastBuildResults;
+    if(jobResults.isEmpty())
+    {
+      return "BranchResultLastBuildView";
+    }
+    else
+      {
+        lastBuildResults = jobResults.get(lastIndex);
+      }
     model.addAttribute("jobResults", lastBuildResults);
     return "BranchResultLastBuildView";
   }
@@ -104,7 +112,15 @@ public class DataAnalyserController
   {
     final List<JobResults> leftBranchJobResultsList = repository.findAllByBranch(leftBranch);
     final List<JobResults> rightBranchJobResultsList = repository.findAllByBranch(rightBranch);
-    JobResults leftBranchLastBuildTestResult = leftBranchJobResultsList.get(leftBranchJobResultsList.size()-1);
+    JobResults leftBranchLastBuildTestResult;
+    if(leftBranchJobResultsList.isEmpty() || rightBranchJobResultsList.isEmpty())
+    {
+      return "BranchResultComparisonView";
+    }
+    else
+      {
+        leftBranchLastBuildTestResult = leftBranchJobResultsList.get(leftBranchJobResultsList.size()-1);
+      }
 
     ResultComparison resultComparison = new ResultComparison();
     MatchResults matchResults = resultComparison.matchResults(leftBranchJobResultsList, rightBranchJobResultsList);

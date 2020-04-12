@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html lang="en">
 <head>
+  <title>Data Analyser Tool</title>
 
   <link rel="stylesheet" type="text/css" href="webjars/bootstrap/3.3.7/css/bootstrap.min.css"/>
 
@@ -18,28 +19,51 @@
 </head>
 
 <body>
-<h1>Branch Comparison Result - The tests below need fixing:</h1>
-<table>
-  <tr>
-    <th>Test Job</th>
-    <th>Build Number</th>
-    <th>Branch Name</th>
-    <th>Class Name</th>
-    <th>Test Name</th>
-    <th>Test Status</th>
-  </tr>
-<c:forEach var="testResult" items="${filteredResults}">
-  <tr>
-    <td>${jobResult.testJob}</td>
-    <td>${jobResult.buildNo}</td>
-    <td>${jobResult.branch}</td>
-    <td>${testResult.className}</td>
-    <td>${testResult.testName}</td>
-    <td>${testResult.testStatus}</td>
-  </tr>
-</c:forEach>
-</table>
-<th><a href="http://localhost:8080/">Go Back to Main Menu</a></th>
+<header>
+  <h1>Data Analyser Tool</h1>
+  <p>This tool will help you view and compare test builds between branches accurately</p>
+</header>
+
+<main class="branch">
+  <div>
+    <div>
+      <div align="center">
+        <h1>Branch Comparison Result - The Tests below need Fixing</h1>
+        <table>
+          <tr>
+            <th>Test Job</th>
+            <th>Build Number</th>
+            <th>Branch Name</th>
+            <th>Class Name</th>
+            <th>Test Name</th>
+            <th>Test Status</th>
+          </tr>
+          <c:forEach var="testResult" items="${filteredResults}">
+            <tr>
+              <td>${jobResult.testJob}</td>
+              <td>${jobResult.buildNo}</td>
+              <td>${jobResult.branch}</td>
+              <td>${testResult.className}</td>
+              <td>${testResult.testName}</td>
+              <td>${testResult.testStatus}</td>
+            </tr>
+          </c:forEach>
+        </table>
+        <div class="buttons">
+          <form action="/selectBranches">
+            <button type="submit">Select Another Branch</button>
+          </form>
+          <form action="/">
+            <button type="submit">Go Back to Main Menu</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</main>
+
+<footer>Made by Eric Jivraj in 2020 | Final Year Project | Final Year Computer Science Student at Aston University</footer>
 
 <script type="text/javascript" src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"/>
 
