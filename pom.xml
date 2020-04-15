@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>io.spring.boot</groupId>
-	<artifactId>test-data-analyser</artifactId>
+	<artifactId>data-analyser</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>test-data-analyser</name>
+	<name>data-analyser</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
