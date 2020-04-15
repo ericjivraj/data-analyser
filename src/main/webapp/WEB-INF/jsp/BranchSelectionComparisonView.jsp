@@ -32,10 +32,15 @@
         <img src="/images/comparison.png">
         <div class="buttons">
           <form action="/compareBranches" method="GET">
-            <b>First Branch</b>
-            <input type="text" name="leftBranch" id="leftBranch" required/>
-            <b>Second Branch</b>
-            <input type="text" name="rightBranch" id="rightBranch" required/>
+            <b>Left Branch</b>
+            <input type="text" name="leftBranch" id="leftBranch" placeholder="E.g: feature branch" required/>
+            <b>Left Test Job</b>
+            <input type="text" name="leftJob" id="leftJob" placeholder="E.g: test job"/>
+            <b>Right Branch</b>
+            <input type="text" name="rightBranch" id="rightBranch" placeholder="E.g: master branch" required/>
+            <b>Right Test Job</b>
+            <input type="text" name="rightJob" id="rightJob" placeholder="E.g: test job"/>
+            <br>
             <button type="submit" name="compareBranch" id="compareBranch">Compare Branches</button>
           </form>
         </div>

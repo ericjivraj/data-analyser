@@ -29,11 +29,11 @@
     <div>
       <div align="center">
         <h1>Branch Result - Last Build</h1>
+        <h3>Branch Name: ${jobResults.branch}</h3>
         <table>
           <tr>
             <th>Test Job</th>
             <th>Build Number</th>
-            <th>Branch Name</th>
             <th>Class Name</th>
             <th>Test Name</th>
             <th>Test Status</th>
@@ -43,7 +43,6 @@
               <tr>
                 <td>${jobResults.testJob}</td>
                 <td>${jobResults.buildNo}</td>
-                <td>${jobResults.branch}</td>
                 <td>${testResult.className}</td>
                 <td>${testResult.testName}</td>
                 <td>${testResult.testStatus}</td>

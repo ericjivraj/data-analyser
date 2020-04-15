@@ -17,4 +17,11 @@ public interface IJobResultRepository extends MongoRepository<JobResults, String
    * @return List<JobResults> belonging to the given branch
    */
   List<JobResults> findAllByBranch(String branch);
+
+  /** This method is used to query the database to find all the job results for a given branch and test job
+   * @param branch branch name
+   * @param testJob test job
+   * @return List<JobResults> belonging to the given branch and test job
+   */
+  List<JobResults> findAllByBranchAndTestJob(String branch, String testJob);
 }

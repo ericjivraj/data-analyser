@@ -33,7 +33,9 @@
         <div class="buttons">
           <form action="/viewAllBuilds" method="GET">
             <b>Branch Name</b>
-            <input type="text" name="leftBranch" id="leftBranch" required/>
+            <input type="text" name="leftBranch" id="leftBranch" placeholder="E.g: feature branch" required/>
+            <b>Test Job</b>
+            <input type="text" name="testJob" id="testJob" placeholder="E.g: test job"/>
             <button type="submit" name="compareBranch" id="compareBranch">View All Builds</button>
           </form>
         </div>

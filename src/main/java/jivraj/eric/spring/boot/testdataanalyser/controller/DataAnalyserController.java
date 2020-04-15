@@ -51,9 +51,28 @@ public class DataAnalyserController
    * @return Branch Result View which will show the test results for all the builds in a given branch
    */
   @RequestMapping(value = "/viewAllBuilds", method = RequestMethod.GET)
-  public String branchResultAllBuildsView(Model model, @RequestParam(name = "leftBranch") String leftBranch)
+  public String branchResultAllBuildsView(Model model, @RequestParam(name = "leftBranch") String leftBranch,
+                                          @RequestParam(name = "testJob") String testJob)
   {
-    final List<JobResults> jobResults = repository.findAllByBranch(leftBranch);
+    final List<JobResults> jobResults;
+    String branch = "";
+    if(testJob.isEmpty())
+    {
+      jobResults = repository.findAllByBranch(leftBranch);
+      if(!jobResults.isEmpty())
+      {
+        branch = jobResults.get(0).getBranch();
+      }
+    }
+    else
+    {
+      jobResults = repository.findAllByBranchAndTestJob(leftBranch, testJob);
+      if(!jobResults.isEmpty())
+      {
+        branch = jobResults.get(0).getBranch();
+      }
+    }
+    model.addAttribute("branch", branch);
     model.addAttribute("jobResults", jobResults);
     return "BranchResultView";
   }
@@ -73,9 +92,19 @@ public class DataAnalyserController
    * @return Branch Result Last Build View which shows the latest test results build for a given branch
    */
   @RequestMapping(value = "/viewLastBuildInBranch", method = RequestMethod.GET)
-  public String branchResultLastBuildView(Model model, @RequestParam(name = "leftBranch") String leftBranch)
+  public String branchResultLastBuildView(Model model, @RequestParam(name = "leftBranch") String leftBranch,
+                                          @RequestParam(name = "testJob") String testJob)
   {
-    final List<JobResults> jobResults = repository.findAllByBranch(leftBranch);
+    final List<JobResults> jobResults;
+    if(testJob.isEmpty())
+    {
+      jobResults = repository.findAllByBranch(leftBranch);
+    }
+    else
+      {
+        jobResults = repository.findAllByBranchAndTestJob(leftBranch, testJob);
+      }
+
     int lastIndex = jobResults.size()-1;
     JobResults lastBuildResults;
     if(jobResults.isEmpty())
@@ -108,10 +137,23 @@ public class DataAnalyserController
    */
   @RequestMapping(value = "/compareBranches", method = RequestMethod.GET)
   public String branchResultComparisonView(Model model, @RequestParam(name = "leftBranch") String leftBranch,
-                                           @RequestParam(name = "rightBranch") String rightBranch)
+                                           @RequestParam(name = "rightBranch") String rightBranch,
+                                           @RequestParam(name = "leftJob") String leftJob,
+                                           @RequestParam(name = "rightJob") String rightJob)
   {
-    final List<JobResults> leftBranchJobResultsList = repository.findAllByBranch(leftBranch);
-    final List<JobResults> rightBranchJobResultsList = repository.findAllByBranch(rightBranch);
+    final List<JobResults> leftBranchJobResultsList;
+    final List<JobResults> rightBranchJobResultsList;
+    if(leftJob.isEmpty() || rightJob.isEmpty())
+    {
+      leftBranchJobResultsList = repository.findAllByBranch(leftBranch);
+      rightBranchJobResultsList = repository.findAllByBranch(rightBranch);
+    }
+    else
+      {
+        leftBranchJobResultsList = repository.findAllByBranchAndTestJob(leftBranch, leftJob);
+        rightBranchJobResultsList = repository.findAllByBranchAndTestJob(rightBranch, rightJob);
+      }
+
     JobResults leftBranchLastBuildTestResult;
     if(leftBranchJobResultsList.isEmpty() || rightBranchJobResultsList.isEmpty())
     {
