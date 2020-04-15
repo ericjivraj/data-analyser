@@ -29,7 +29,6 @@
     <div>
       <div align="center">
         <h1>Branch Comparison Result - The Tests below need Fixing</h1>
-        <br>
         <p>The table below is displaying the tests that need fixing. The comparison performed between the two branches was done
         filtering the tests that are failing on the left branch and understanding if they have failed on the right branch before for the same reason,
         if they have, that means they are intermittent failures/flaky tests, if not then that means they are real failures that need fixing</p>
