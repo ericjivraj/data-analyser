@@ -31,7 +31,7 @@
         <h1>View Last Build in a Branch</h1>
         <p>Branch fields are compulsory, test job fields are optional. If you enter a test job, then it will only display all the results for that
         given branch and job. <br>
-          <b>If you do not specify the job, it will display all the results for all jobs within that branch</b></p>
+          If you do not specify the job, it will display all the results for all jobs within that branch</p>
         <img src="/images/lastbuild.png">
         <div class="buttons">
         <form action="/viewLastBuildInBranch" method="GET">
