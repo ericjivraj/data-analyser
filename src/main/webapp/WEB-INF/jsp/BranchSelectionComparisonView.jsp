@@ -31,7 +31,7 @@
         <h1>Compare Test Results between Branches</h1>
         <p>Branch fields are compulsory, test job fields are optional. If you enter the test jobs, then it will only perform the comparison between
         those jobs between the given branches. <br>
-          If you do not specify the jobs, it will perform the comparison for all jobs between the given branches</p>
+          <b>If you do not specify the jobs, it will perform the comparison for all jobs between the given branches</b></p>
         <img src="/images/comparison.png">
         <div class="buttons">
           <form action="/compareBranches" method="GET">
